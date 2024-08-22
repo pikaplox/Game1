@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<User>
+		<Monokuma>
+			<Pos>
+				<x>800</x>
+				<y>600</y>
+			</Pos>
+		</Monokuma>
+		<Building>
+			<type>Tower</type>
+			<Pos>
+				<x>800</x>
+				<y>700</y>
+			</Pos>
+		</Building>
+	</User>
+	<AIPlayer>
+		<SpawnPoint>
+			<type>Portal</type>
+			<Pos>
+				<x>40</x>
+				<y>40</y>
+			</Pos>
+			<mob rate ="50">Enemigo</mob>
+			<mob rate ="20">Enemigo2</mob>
+			<mob rate ="80">EnemigoPrueba</mob>
+			<timerAdd>1000</timerAdd>
+		</SpawnPoint>
+		<SpawnPoint>
+			<type>Portal</type>
+			<Pos>
+				<x>800</x>
+				<y>40</y>
+			</Pos>
+			<mob rate ="50">Enemigo</mob>
+			<mob rate ="20">Enemigo2</mob>
+			<mob rate ="80">EnemigoPrueba</mob>
+			<timerAdd>500</timerAdd>
+		</SpawnPoint>
+		<SpawnPoint>
+			<type>Portal</type>
+			<Pos>
+				<x>1560</x>
+				<y>40</y>
+			</Pos>
+			<mob rate ="50">Enemigo</mob>
+			<mob rate ="20">Enemigo2</mob>
+			<mob rate ="80">EnemigoPrueba</mob>
+			<timerAdd>0</timerAdd>
+		</SpawnPoint>
+	</AIPlayer>
+	
+</Root>
