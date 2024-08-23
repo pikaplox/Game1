@@ -22,7 +22,7 @@ namespace Hola
         int range;
         McTimer shotTimer = new McTimer(800);
         
-        public ArrowTower(Vector2 POS, int OWNERID) : base("2d\\Buildings\\ArrowTower", POS, new Vector2(45, 45), OWNERID)
+        public ArrowTower(Vector2 POS, int OWNERID) : base("2d\\Buildings\\Tower", POS, new Vector2(45, 45), OWNERID)
         {
             range = 500;
             

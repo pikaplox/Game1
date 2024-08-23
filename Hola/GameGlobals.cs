@@ -18,6 +18,8 @@ namespace Hola
 {
     public class GameGlobals
     {
+        public static bool paused = false;
+
         public static int score = 0;
 
         public static PassObject PassProjectile, PassBuilding, PassMob, PassSpawnPoint, PassMarca, CheckScroll, CheckScrollDash;

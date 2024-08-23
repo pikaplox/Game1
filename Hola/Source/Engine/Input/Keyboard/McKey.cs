@@ -48,7 +48,12 @@ namespace Hola
             {
                 tempStr = " ";
             }
-            if(KEY == "OemCloseBrackets")
+            if (KEY == "LeftControl")
+            {
+                tempStr = "";
+                display = tempStr;
+            }
+            if (KEY == "OemCloseBrackets")
             {
                 tempStr = "]";
                 display = tempStr;

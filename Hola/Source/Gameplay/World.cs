@@ -47,6 +47,8 @@ namespace Hola
             GameGlobals.PassSpawnPoint = AddSpawnPoint;
             GameGlobals.CheckScrollDash = CheckScrollDash;
 
+            GameGlobals.paused = false;
+
             offset = new Vector2(0,0);
 
             LoadData(1);
@@ -58,7 +60,7 @@ namespace Hola
 
         public virtual void Update(Vector2 OFFSET)
         {
-            if (!user.monokuma.dead && user.buildings.Count > 0)
+            if (!user.monokuma.dead && user.buildings.Count > 0 && !GameGlobals.paused)
             {
                 allObjects.Clear();
                 allObjects.AddRange(user.GetAllObjects());
@@ -89,6 +91,12 @@ namespace Hola
                 {
                     ResetWorld(null);
                 }
+                
+            }
+            
+            if (Globals.keyboard.GetSinglePress("LeftControl"))
+            {
+                GameGlobals.paused = !GameGlobals.paused;
             }
         }
 

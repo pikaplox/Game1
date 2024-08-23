@@ -24,10 +24,13 @@ namespace Hola
 {
     public class UI
     {
+        public Basic2D pauseOverlay;
+
         public SpriteFont font;
         public QuantityDisplayBar quantityDisplayBar;
         public UI()
         {
+            pauseOverlay = new Basic2D("2D\\Misc\\PauseOverlay", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(300,300));
             font = Globals.content.Load<SpriteFont>("2D\\ola");
             quantityDisplayBar = new QuantityDisplayBar(new Vector2(104, 16), 2, Color.Red);
         }
@@ -59,6 +62,12 @@ namespace Hola
                 Globals.spriteBatch.DrawString(font, tempStr, new Vector2(Globals.screenWidth / 2 - strDims.X / 2, Globals.screenHeight / 2), Color.Black);
             }
             quantityDisplayBar.Draw(new Vector2(20, Globals.screenHeight - 40));
+
+            if (GameGlobals.paused)
+            {
+                pauseOverlay.Draw(Vector2.Zero);
+            }
+
         }
     }
 }
