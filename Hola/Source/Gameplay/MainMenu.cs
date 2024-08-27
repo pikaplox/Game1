@@ -54,7 +54,7 @@ namespace Hola
 
             for (int i = 0; i < buttons.Count(); i++)
             {
-                buttons[i].Update(new Vector2(340, 600 + 45 * i));
+                buttons[i].Draw(new Vector2(340, 600 + 45 * i));
             }
 
         }

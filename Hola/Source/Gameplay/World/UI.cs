@@ -26,7 +26,7 @@ namespace Hola
     {
         public Basic2D pauseOverlay;
 
-        public Basic2D resetBtn;
+        public Button2D resetBtn;
 
         public SpriteFont font;
         public QuantityDisplayBar quantityDisplayBar;

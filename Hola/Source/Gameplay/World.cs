@@ -83,10 +83,12 @@ namespace Hola
                     }
                 }
                 
-                ui.Update(this);
+                
             }
             else
             {
+                
+
                 if (Globals.keyboard.GetPress("Enter") && (user.monokuma.dead = true) || (user.buildings.Count <= 0))
                 {
                     ResetWorld(null);
@@ -104,6 +106,8 @@ namespace Hola
             {
                 GameGlobals.paused = !GameGlobals.paused;
             }
+
+            ui.Update(this);
         }
 
         public virtual void LoadData(int LEVEL)

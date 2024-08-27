@@ -57,7 +57,7 @@ namespace Hola
             gamePlay = new Gameplay(ChangeGameState);
             mainMenu = new MainMenu(ChangeGameState, ExitGame);
 
-           Globals.normalEffect = Globals.content.Load<Effect>("Effects\\Normal");
+          // Globals.normalEffect = Globals.content.Load<Effect>("Effects\\Normal");
         }
 
         protected override void Update(GameTime gameTime)

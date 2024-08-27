@@ -36,17 +36,10 @@ namespace Hola
         }
         public virtual void Draw(Vector2 OFFSET)
         {
-            Globals.normalEffect.Parameters["xSize"].SetValue(1.0f);
-            Globals.normalEffect.Parameters["ySize"].SetValue(1.0f);
-            Globals.normalEffect.Parameters["xDraw"].SetValue(1.0f);
-            Globals.normalEffect.Parameters["yDraw"].SetValue(1.0f);
-            Globals.normalEffect.Parameters["filterColor"].SetValue(Color.Black.ToVector4());
-            Globals.normalEffect.CurrentTechnique.Passes[0].Apply();
+           
 
             barBG.Draw(OFFSET, new Vector2(0, 0), Color.Black);
 
-            Globals.normalEffect.Parameters["filterColor"].SetValue(color.ToVector4());
-            Globals.normalEffect.CurrentTechnique.Passes[0].Apply();
 
             bar.Draw(OFFSET + new Vector2(boarder, boarder), new Vector2(0,0), color);
         }
