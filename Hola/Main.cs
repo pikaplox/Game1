@@ -26,6 +26,7 @@ namespace Hola
 
         Gameplay gamePlay;
         Basic2D cursor;
+        MainMenu mainMenu;
 
         public Main()
         {
@@ -53,9 +54,10 @@ namespace Hola
             Globals.keyboard = new McKeyboard();
             Globals.mouse = new McMouseControl();
             cursor = new Basic2D("2d\\Misc\\cursor", Vector2.Zero, new Vector2(20, 20));
-            gamePlay = new Gameplay();
+            gamePlay = new Gameplay(ChangeGameState);
+            mainMenu = new MainMenu(ChangeGameState, ExitGame);
 
-            Globals.normalEffect = Globals.content.Load<Effect>("Effects\\Normal");
+           Globals.normalEffect = Globals.content.Load<Effect>("Effects\\Normal");
         }
 
         protected override void Update(GameTime gameTime)
@@ -66,15 +68,17 @@ namespace Hola
             Globals.gameTime = gameTime;   
             Globals.keyboard.Update();
             Globals.mouse.Update();
-            gamePlay.Update();
+
+
+            if (Globals.gameState == 0)
+            {
+                mainMenu.Update();
+            }
+            else if (Globals.gameState == 1)
+            {
+                gamePlay.Update();
+            }
             
-
-
-
-
-
-
-
 
             Globals.keyboard.UpdateOld();
             Globals.mouse.UpdateOld();
@@ -83,14 +87,32 @@ namespace Hola
             base.Update(gameTime);
         }
 
+        public virtual void ChangeGameState(object INFO)
+        {
+            Globals.gameState = Convert.ToInt32(INFO, Globals.culture);
+        }
+
+        public virtual void ExitGame(object INFO)
+        {
+            System.Environment.Exit(0);
+        }
+
+
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             Globals.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
 
-
-            gamePlay.Draw();
+            if (Globals.gameState == 0)
+            {
+                mainMenu.Draw();
+            }
+            else if (Globals.gameState == 1)
+            {
+                gamePlay.Draw();
+            }
+            
             cursor.Draw(new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y), Vector2.Zero, Color.White);
 
 

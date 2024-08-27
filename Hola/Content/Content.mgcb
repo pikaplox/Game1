@@ -152,6 +152,18 @@
 /processorParam:TextureFormat=Color
 /build:2D/Misc/punto.png
 
+#begin 2D/Misc/SimpleBtn.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:2D/Misc/SimpleBtn.png
+
 #begin 2D/Mob.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -259,6 +271,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:2D/Punga.png
+
+#begin 2D/UI/MainMenuBkg.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:2D/UI/MainMenuBkg.png
 
 #begin Effects/Normal.fx
 /importer:EffectImporter

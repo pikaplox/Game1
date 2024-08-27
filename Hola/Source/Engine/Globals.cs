@@ -26,7 +26,7 @@ namespace Hola
 
         public static System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
 
-        public static int screenWidth, screenHeight;
+        public static int screenWidth, screenHeight, gameState = 0;
         public static ContentManager content;
         public static SpriteBatch spriteBatch;
 

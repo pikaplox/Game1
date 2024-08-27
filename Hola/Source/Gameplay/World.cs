@@ -28,15 +28,15 @@ namespace Hola
         public Basic2D Marca;
         public UI ui; 
    
-        PassObject ResetWorld;
+        PassObject ResetWorld, ChangeGameState;
 
         public User user;
         public AIPlayer aiPlayer;
         
-        public World(PassObject RESETWORLD)
+        public World(PassObject RESETWORLD, PassObject CHANGEGAMESTATE)
         {
             ResetWorld = RESETWORLD;
-            
+            ChangeGameState = CHANGEGAMESTATE;
             
             
             GameGlobals.PassProjectile = AddProjectile;
@@ -53,7 +53,7 @@ namespace Hola
 
             LoadData(1);
 
-            ui = new UI();
+            ui = new UI(ResetWorld);
 
             user.monokuma.ResetearCD();
         }
@@ -93,7 +93,13 @@ namespace Hola
                 }
                 
             }
-            
+
+            if (Globals.keyboard.GetPress("Back"))
+            {
+                ResetWorld(null);
+                ChangeGameState(0);
+            }
+
             if (Globals.keyboard.GetSinglePress("LeftControl"))
             {
                 GameGlobals.paused = !GameGlobals.paused;

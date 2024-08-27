@@ -26,17 +26,28 @@ namespace Hola
     {
         public Basic2D pauseOverlay;
 
+        public Basic2D resetBtn;
+
         public SpriteFont font;
         public QuantityDisplayBar quantityDisplayBar;
-        public UI()
+        public UI(PassObject RESET)
         {
             pauseOverlay = new Basic2D("2D\\Misc\\PauseOverlay", new Vector2(Globals.screenWidth/2, Globals.screenHeight/2), new Vector2(300,300));
             font = Globals.content.Load<SpriteFont>("2D\\ola");
             quantityDisplayBar = new QuantityDisplayBar(new Vector2(104, 16), 2, Color.Red);
+
+            resetBtn = new Button2D("2D\\Misc\\SimpleBtn", new Vector2(0, 0), new Vector2(96, 32), "2D\\ola", "RESET", RESET, null);
+        
         }
         public void Update(World WORLD)
         {
             quantityDisplayBar.Update(WORLD.user.monokuma.health, WORLD.user.monokuma.healthMax);
+
+            if (WORLD.user.monokuma.dead || WORLD.user.buildings.Count <= 0)
+            {
+                resetBtn.Update(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 100));
+            }
+
         }
         public void Draw(World WORLD)
         {
@@ -57,10 +68,15 @@ namespace Hola
 
             if (WORLD.user.monokuma.dead || WORLD.user.buildings.Count <= 0)
             {
-                tempStr = "Press Enter to restart";
+                tempStr = "Press Enter or click the button to restart";
                 strDims = font.MeasureString(tempStr);
                 Globals.spriteBatch.DrawString(font, tempStr, new Vector2(Globals.screenWidth / 2 - strDims.X / 2, Globals.screenHeight / 2), Color.Black);
+
+                resetBtn.Draw(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 100));
             }
+
+            
+
             quantityDisplayBar.Draw(new Vector2(20, Globals.screenHeight - 40));
 
             if (GameGlobals.paused)
